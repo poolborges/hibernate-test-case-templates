@@ -5,7 +5,11 @@
 	<groupId>org.hibernate.testcasetemplate</groupId>
 	<artifactId>test-case-template-hibernate-orm5</artifactId>
 	<version>1.0.0.Final</version>
-	<name>Hibernate ORM 5 Test Case Template</name>
+	<name>Hibernate ORM 5 Test Case for (HHH-10702)</name>
+        <description>
+            Hibernate ORM 5 Test Case for (HHH-10702)
+            https://hibernate.atlassian.net/browse/HHH-10702
+        </description>
 
 	<properties>
 		<version.com.h2database>1.3.176</version.com.h2database>

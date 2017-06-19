@@ -25,13 +25,28 @@ public class JPAUnitTestCase {
 		entityManagerFactory.close();
 	}
 
-	// Entities are auto-discovered, so just add them anywhere on class-path
-	// Add your tests, using standard JUnit.
-	@Test
-	public void hhh123Test() throws Exception {
+	// This test will FAIL, 
+        // Because the Event entity with id = 1, has version fiel with no(null) value
+        @Test
+	public void hhh10702Test() throws Exception {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		// Do stuff...
+                Long eventId = 1L;
+		Event evnt = entityManager.find(Event.class, eventId);
+                evnt.setTitle("Event 1 Title changed");
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+        
+        // This test will PASS, 
+        // Because the Event entity with id = 2, has version fiel with valie value (valid integer) 
+        @Test
+	public void usecaseToPassTest() throws Exception {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+                Long eventId = 2L;
+		Event evnt = entityManager.find(Event.class, eventId);
+                evnt.setTitle("Event 2");
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}

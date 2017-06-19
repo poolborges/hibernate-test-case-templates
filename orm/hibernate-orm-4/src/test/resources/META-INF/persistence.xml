@@ -37,6 +37,13 @@
             <property name="javax.persistence.validation.mode" value="NONE"/>
             <property name="hibernate.service.allow_crawling" value="false"/>
             <property name="hibernate.session.events.log" value="true"/>
+            
+            <!-- These settings are tp pre-populate the test case database -->
+            <property name="javax.persistence.sql-load-script-source" value="test_data.sql"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+            <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+            <property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
         </properties>
 
     </persistence-unit>
